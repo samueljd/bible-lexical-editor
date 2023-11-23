@@ -384,8 +384,10 @@ export function loadEditorState(usj: Usj | undefined): SerializedEditorState {
 }
 
 /**
- * A component (plugin) that updates the state of lexical.
- * @param props - { usj object, noteCallers, logger }
+ * A component (plugin) that updates the state of lexical when incoming USJ changes.
+ * @param props.usj - USJ Scripture data.
+ * @param props.noteCallers - Possible note callers to use when caller is '+'.
+ * @param props.logger - logger instance
  * @returns null, i.e. no DOM elements.
  */
 export default function UpdateStatePlugin<TLogger extends LoggerBasic>({

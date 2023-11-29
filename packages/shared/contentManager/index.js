@@ -1,6 +1,7 @@
 import Epitelete from "epitelete";
 import { transformPerfToLexicalState } from "../converters/perfToLexical";
 import { usfm2perf } from "../converters/usfmToPerf";
+import { transformLexicalStateToPerf } from "../converters/lexicalToPerf";
 
 export const getLexicalState = (usfmText) => {
   //Lots of hardcoded data here.
@@ -26,7 +27,14 @@ export const getLexicalState = (usfmText) => {
 };
 
 // export const lexicalState = getTestLexicalState();
-
+export const getPerfState = (lexicalNode) => {
+  const lexicalNodeMap = lexicalNode._nodeMap;
+  const lastItemInMap = Array.from(lexicalNodeMap)[lexicalNodeMap.size - 1];
+  console.log({ lastItemInMap });
+  // console.log({ lexicalNode });
+  const perfState = transformLexicalStateToPerf(lastItemInMap);
+  console.log({ perfState });
+};
 /**
  * A class with useful methods for managing
  * multiple intances of epitelete, each epitelete instance

@@ -2,4 +2,5 @@
 
 declare module "shared/contentManager" {
   export function getLexicalState(usfm: string): string;
+  export function getPerfState(lexicalNode: EditorState): string;
 }

@@ -16,6 +16,7 @@ import {
   CAN_REDO_COMMAND,
   CAN_UNDO_COMMAND,
   COMMAND_PRIORITY_CRITICAL,
+  COPY_COMMAND,
   REDO_COMMAND,
   SELECTION_CHANGE_COMMAND,
   UNDO_COMMAND,
@@ -131,6 +132,18 @@ export default function ToolbarPlugin(): JSX.Element {
         <i className="format redo" />
       </button>
       <Divider />
+      <button
+        // disabled={!canUndo || !isEditable}
+        onClick={() => {
+          activeEditor.dispatchCommand(COPY_COMMAND, null);
+        }}
+        title={IS_APPLE ? "Copy (⌘C)" : "Copy (Ctrl+C)"}
+        type="button"
+        className="toolbar-item spaced"
+        aria-label="Copy"
+      >
+        <span className="text">Copy</span>
+      </button>
       {activeEditor === editor && (
         <>
           <BlockFormatDropDown disabled={!isEditable} blockType={blockType} editor={editor} />

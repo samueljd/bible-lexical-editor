@@ -445,6 +445,10 @@ i.redo {
   background-image: url("/assets/images/icons/arrow-clockwise.svg");
 }
 
+i.copy {
+  background-image: url("/assets/images/icons/clipboard.svg");
+}
+
 .icon.para-m,
 .icon.para-nb,
 .icon.para-p,

@@ -5,6 +5,7 @@ import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import scriptureNodes from "shared/nodes";
 import { OnChangePlugin, OnChange } from "../lexical/plugins/OnChangePlugin";
+import ContextMenuPlugin from "../lexical/plugins/ContextMenuPlugin";
 import { useLexicalState } from "./useLexicalState";
 
 const theme = {
@@ -48,6 +49,7 @@ export default function Editor() {
           ErrorBoundary={LexicalErrorBoundary}
         />
         <OnChangePlugin onChange={onChange} />
+        <ContextMenuPlugin />
         <HistoryPlugin />
       </div>
     </LexicalComposer>

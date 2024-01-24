@@ -12,6 +12,7 @@
     "@lexical/react": "^0.12.2",
     "@lexical/selection": "^0.12.2",
     "@lexical/utils": "^0.12.2",
+    "LexicalContextMenuPlugin": "link:@lexical/react/LexicalContextMenuPlugin",
     "epitelete-html": "^0.2.21-beta.2",
     "lexical": "^0.12.2",
     "react": "^18.2.0",

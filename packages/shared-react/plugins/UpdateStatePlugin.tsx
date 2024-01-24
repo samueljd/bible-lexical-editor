@@ -34,6 +34,15 @@ export default function UpdateStatePlugin<TLogger extends LoggerBasic>({
     const serializedEditorState = editorAdaptor.loadEditorState(scripture, viewMode);
     const editorState = editor.parseEditorState(serializedEditorState);
     // Execute after the current render cycle.
+
+    // editor.registerCommand(
+    //   COPY_COMMAND,
+    //   (payload: ClipboardEvent) => {
+    //     console.log({ payload }); // Hello World!
+    //     return false;
+    //   },
+    //   1,
+    // );
     setTimeout(() => {
       editor.setEditorState(editorState);
       editor.dispatchCommand(CLEAR_HISTORY_COMMAND, undefined);

@@ -15,10 +15,7 @@ import editorTheme from "./themes/editor-theme";
 import ScriptureReferencePlugin from "./plugins/ScriptureReferencePlugin";
 import ToolbarPlugin from "./plugins/toolbar/ToolbarPlugin";
 import ContextMenuPlugin from "./plugins/ContextMenuPlugin";
-import BackslashPlugin from "./plugins/BackSlashPlugin";
-import { $getHtmlContent, $getLexicalContent, copyToClipboard } from "@lexical/clipboard";
-import { COPY_COMMAND, PASTE_COMMAND, CUT_COMMAND } from "lexical";
-import { FloatingMenuPlugin } from "./plugins/FloatingMenuPlugin";
+import BackSlashPlugin from "./plugins/BackSlashPlugin";
 
 type Mutable<T> = {
   -readonly [P in keyof T]: T[P];
@@ -80,7 +77,6 @@ export default function Editor<TLogger extends LoggerBasic>({
   isReadonly,
   logger,
 }: EditorProps<TLogger>): JSX.Element {
-  const [backSlashPopup, setBackSlashPopup] = useState(false);
   editorConfig.editable = !isReadonly;
 
   return (
@@ -102,7 +98,7 @@ export default function Editor<TLogger extends LoggerBasic>({
             logger={logger}
           />
           <ContextMenuPlugin />
-          <BackslashPlugin backSlashPopup={backSlashPopup} setBackSlashPopup={setBackSlashPopup} />
+          <BackSlashPlugin />
         </div>
       </div>
     </LexicalComposer>

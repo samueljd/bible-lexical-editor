@@ -64,10 +64,12 @@ export default function BlockFormatDropDown({
   editor,
   blockType,
   disabled = false,
+  closeMenu,
 }: {
   editor: LexicalEditor;
   blockType: string;
   disabled?: boolean;
+  closeMenu?: () => void;
 }): JSX.Element {
   const formatPara = (selectedBlockType: string) => {
     editor.update(() => {
@@ -76,6 +78,9 @@ export default function BlockFormatDropDown({
         $setBlocksType(selection, () => $createParaNode(typeToStyle(selectedBlockType)));
       }
     });
+    if (closeMenu) {
+      closeMenu();
+    }
   };
 
   return (
